@@ -37,6 +37,11 @@ async function action(context: Context = github.context) {
     if (process.env.NODE_ENV === 'test') {
       throw error
     }
+    
+    // Tmp logging     
+    core.info(error)
+    core.info(error.response)
+    core.info(error.request.body)
 
     core.error(error)
     core.setFailed(error.message)
